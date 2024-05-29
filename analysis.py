@@ -4,11 +4,16 @@
 import assemblyai as aai
 import ollama
 
-stream = ollama.chat(
-    model='llama3',
-    messages=[{'role': 'user', 'content': 'Why is the sky blue?'}],
-    stream=True,
-)
+def get_topics(text) -> str : 
+    prompt = "The following text corresponds to an explanation in a specific area. Do not summarize it, but rather divide the text into topics and subtopics"
+    
+    prompt = prompt + text
+    
+    stream = ollama.chat(
+        model='llama3',
+        messages=[{'role': 'user', 'content': prompt}],
+        stream=True,
+    )
 
-for chunk in stream:
-  print(chunk['message']['content'], end='', flush=True)
+    for chunk in stream:
+        print(chunk['message']['content'], end='', flush=True)
