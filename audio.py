@@ -2,21 +2,43 @@
 # 26 05 2024
 
 import whisper
-import analysis
+from flask import Flask, request
+from pydub import AudioSegment
 
-model = whisper.load_model('base')
+app = Flask(__name__)
 
-audio = whisper.load_audio('audio.wav')
 
-mel = whisper.log_mel_spectrogram(audio).to(model.device)
+# Loads the model and transcribes the audio file
+@app.route('/get-transcription', methods=['POST'])
+def get_transcription():
+    audio_file = request.files['audio']
+    
+    model = whisper.load_model('base')
+    
+    # Convert the audio file to a format that Whisper can process
+    audio = AudioSegment.from_file(audio_file, format='mp3')
+    audio.export('temp.mp3', format='mp3')  # Export as WAV file
 
-options = whisper.DecodingOptions(fp16=False)
-result = whisper.decode(model, mel, options)
+    # Load the audio file for Whisper
+    audio_data = whisper.load_audio('temp.mp3')
 
-with open('result.txt', 'w') as file:
-    file.write(result.text)
+    options = {
+        "language": "en",
+        "task": "translate" 
+    }
 
-print(result.text)
+    result = whisper.transcribe(model, audio_data, **options, fp16=False)
 
-#analysis.get_topics(result.text)
+    text_value = result.get('text', '')
 
+    text_string = str(text_value)
+
+    with open('result.txt', 'w') as file:
+        file.write(text_string)
+
+    print(text_string)
+
+    return text_string
+
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
