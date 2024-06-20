@@ -39,9 +39,8 @@ def get_transcription():
 
     print(text_string)
 
-    analysis.get_topics(text_string)
+    return  analysis.get_topics(text_string)
 
-    return text_string
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
