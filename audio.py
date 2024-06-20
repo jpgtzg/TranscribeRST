@@ -4,6 +4,7 @@
 import whisper
 from flask import Flask, request
 from pydub import AudioSegment
+import analysis
 
 app = Flask(__name__)
 
@@ -37,6 +38,8 @@ def get_transcription():
         file.write(text_string)
 
     print(text_string)
+
+    analysis.get_topics(text_string)
 
     return text_string
 
