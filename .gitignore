@@ -2,3 +2,4 @@
 *.txt
 __pycache__/*.pyc
 temp.mp3
+algorithm/__pycache__/*.pyc
