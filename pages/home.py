@@ -28,13 +28,9 @@ transcribe_button = st.button("Transcribe")
 if uploaded_file and transcribe_button: 
     st.write("Transcribing..")
     
-    transcription = audio.get_transcription(uploaded_file)
-    code = code_converter.get_code(transcription)
+    code = code_converter.get_code(audio.get_transcription(uploaded_file))
     
-    st.write("Transcription:")
-    st.write(transcription)
-    
-    st.write("Code:")
+    st.write("#Code:")
     st.write(code)
     
     

@@ -26,10 +26,5 @@ def get_transcription(audio_file):
 
     text_string = str(text_value)
 
-    with open('result.txt', 'w') as file:
-        file.write(text_string)
-
-    print(text_string)
-
     return text_string
 
