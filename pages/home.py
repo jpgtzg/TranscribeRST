@@ -5,7 +5,6 @@ import streamlit as st
 import sys
 from pathlib import Path
 import time as t
-from streamlit_option_menu import option_menu
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
@@ -16,8 +15,6 @@ def __init__ ():
     pass
 
 st.title("AI Docs")
-
-
 
 def home(): 
     st.write("""Welcome to AI Docs! 
