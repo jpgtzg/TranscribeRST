@@ -68,14 +68,15 @@ To get started with Java, install the Java Development Kit (JDK) and create a fi
 Example Code
 --------------
 
-```
-class MyFirstJavaProgram {
-    public static void main(String[] args) {
-        int myVariable = 10;
-        System.out.println("The value of myVariable is: " + myVariable);
+.. code-block:: java
+
+    class MyFirstJavaProgram {
+        public static void main(String[] args) {
+            int myVariable = 10;
+            System.out.println("The value of myVariable is: " + myVariable);
+        }
     }
-}
-```
+
 
 In this example, we define a class `MyFirstJavaProgram` with a `main` method. Inside the `main` method, we define a variable `myVariable` and print it to the standard output using the `System.out.println()` method.
 
@@ -87,18 +88,19 @@ Functions in Java are called methods. The `public` keyword means that it can be 
 Example Code (continued)
 -------------------------
 
-```
-class MyFirstJavaProgram {
-    public static void main(String[] args) {
-        int myVariable = 10;
-        System.out.println("The value of myVariable is: " + myVariable);
+.. code-block:: java
+    
+    class MyFirstJavaProgram {
+        public static void main(String[] args) {
+            int myVariable = 10;
+            System.out.println("The value of myVariable is: " + myVariable);
 
-        public static void printHelloWorld() {
-            System.out.println("Hello, World!");
+            public static void printHelloWorld() {
+                System.out.println("Hello, World!");
+            }
         }
     }
-}
-```
+
 
 In this example, we define a method `printHelloWorld()` that prints "Hello, World!" to the standard output.
 
@@ -110,29 +112,32 @@ Custom classes in Java are blueprints for objects. We can add attributes and met
 Example Code (continued)
 -------------------------
 
-```
-class Person {
-    private String name;
-    private int age;
+.. code-block:: java
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+    class Person {
+        private String name;
+        private int age;
+
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public void printInfo() {
+            System.out.println("Name: " + name);
+            System.out.println("Age: " + age);
+        }
     }
 
-    public void printInfo() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-    }
-}
+.. code-block:: java
 
-public class Main {
-    public static void main(String[] args) {
-        Person person = new Person("John", 30);
-        person.printInfo();
+    public class Main {
+        public static void main(String[] args) {
+            Person person = new Person("John", 30);
+            person.printInfo();
+        }
     }
-}
-```
+
 
 In this example, we define a custom class `Person` with attributes and methods. We then instantiate an object from the class using the `new` keyword and call its method.
 
