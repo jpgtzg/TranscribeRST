@@ -38,64 +38,108 @@ def upload() :
         
             st.write("Code: ")
         
-            st.code("""Java
-    =====================================
+            st.code("""Introduction
+-------------
 
-    Java: A High-Level Programming Language
-    -----------------------------------------
+Java is a high-level multi-paradigm programming language famous for its ability to compile to platform independent bytecode. It was designed by James Gosling in 1990 at Sun Microsystems.
 
-    Java is a high-level multi-paradigm programming language famous for its ability to compile to platform-independent bytecode. It was designed by James Gosling in 1990 at Sun Microsystems.
+History
+--------
 
-    History
-    -------
+One of Java's first demonstrations was the Star 7 PDA, which gave birth to the Jawa mascot, Duke. Today, it's one of the world's most popular programming languages. It powers enterprise web apps with Spring framework, big data pipelines with Hadoop, mobile apps on Android, and even things like the controller for NASA's Maestro Mars Rover.
 
-    One of Java's first demonstrations was the Star 7 PDA, which gave birth to the Java mascot, Duke. Today, it's one of the world's most popular programming languages. It powers enterprise web apps with Spring framework, big data pipelines with Hadoop, mobile apps on Android, and even things like the controller for NASA's Maestro Mars Rover.
+What is Java?
+-------------
 
-    Innovations
-    ------------
+Java compiles to bytecode that can run on any operating system without recompiling, which is made possible by executing the code with the Java Virtual Machine (JVM) or JVM. It's both a compiled and interpreted language at the same time.
 
-    What made Java innovative is that instead of compiling to machine code like C or C++, it compiles to bytecode that can run on any operating system without recompiling. This is made possible by executing the code with the Java Virtual Machine (JVM). It's both a compiled and interpreted language at the same time.
+Key Features
+--------------
 
-    Language Features
-    -----------------
+* Strongly typed language
+* Curly brace syntax similar to C family
+* Provides high-level features like garbage collection, runtime type checking, and reflection
 
-    * Strongly typed language with curly brace syntax similar to the C family.
-    * Provides high-level features like garbage collection, runtime type checking, and reflection.
+Getting Started
+-----------------
 
-    Getting Started
-    ---------------
+To get started with Java, install the Java Development Kit (JDK) and create a file ending in `.java`. Every Java program starts with a class name, which should also match the file name. The class is required to have a `main` method.
 
-    To get started, install the Java Development Kit (JDK). Then create a file ending in `.java`. Every Java program starts with a class name, which should also match the file name. The class is required to have a `main` method, where your code will start executing.
+Example Code
+--------------
 
-    Basic Syntax
-    -------------
+```
+class MyFirstJavaProgram {
+    public static void main(String[] args) {
+        int myVariable = 10;
+        System.out.println("The value of myVariable is: " + myVariable);
+    }
+}
+```
 
-    * Define a variable by starting with a type, followed by a name and value.
-    * Print it to the standard output using the built-in system class.
-    * Define functions (methods) on the class. The `public` keyword means that it can be used outside of this class. The `static` keyword means that it's a member of the class itself.
+In this example, we define a class `MyFirstJavaProgram` with a `main` method. Inside the `main` method, we define a variable `myVariable` and print it to the standard output using the `System.out.println()` method.
 
-    Object-Oriented Programming
-    ----------------------------
+Defining Functions
+-------------------
 
-    * Define custom classes, which are blueprints for objects.
-    * Add attributes and methods to them.
-    * Use the `new` keyword to instantiate an object from the class.
+Functions in Java are called methods. The `public` keyword means that it can be used outside of this class. And `static` means that it's a member of the class itself, as opposed to an instance of the class.
 
-    Functional Programming
-    ----------------------
+Example Code (continued)
+-------------------------
 
-    * Supports functional patterns like anonymous lambda methods.
+```
+class MyFirstJavaProgram {
+    public static void main(String[] args) {
+        int myVariable = 10;
+        System.out.println("The value of myVariable is: " + myVariable);
 
-    Compiling and Running
-    --------------------
+        public static void printHelloWorld() {
+            System.out.println("Hello, World!");
+        }
+    }
+}
+```
 
-    * Compile your program using the compiler to generate a `.class` file, which contains the bytecode.
-    * Use the Java command to tell the JVM to interpret and run that file.
+In this example, we define a method `printHelloWorld()` that prints "Hello, World!" to the standard output.
 
-    Conclusion
-    ----------
+Defining Custom Classes
+-------------------------
 
-    Congratulations! You just built an enterprise-grade application. This has been Java in 100 seconds. It's subscribed for more short videos like this, and if we somehow get to 100,000 likes on this video, I'll do a full Java tutorial.""")
+Custom classes in Java are blueprints for objects. We can add attributes and methods to them using the `new` keyword to instantiate an object from the class.
+
+Example Code (continued)
+-------------------------
+
+```
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void printInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person person = new Person("John", 30);
+        person.printInfo();
+    }
+}
+```
+
+In this example, we define a custom class `Person` with attributes and methods. We then instantiate an object from the class using the `new` keyword and call its method.
+
+Conclusion
+----------
+
+Congratulations! You just built an enterprise-grade application using Java. This has been Java in 100 seconds. It's subscribed for more short videos like this, and if we somehow get to 100,000 likes on this video, I'll do a full Java tutorial. Thanks for watching, and I will see you in the next one.""")
 
 home()
 upload() 
