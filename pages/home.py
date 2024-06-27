@@ -8,7 +8,7 @@ import time as t
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from algorithm import audio, code_converter
+#from algorithm import audio, code_converter
 
 def __init__ ():
     st.set_page_config(page_title="AI Docs", page_icon="🧠")
