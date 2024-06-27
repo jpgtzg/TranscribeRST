@@ -100,5 +100,4 @@ def upload() :
 home()
 upload() 
         
-st.write("Source code: [GitHub](https://github.com/jpgtzg/AIDocs)")
 st.write("Credits: Juan Pablo Gutiérrez, 2024")
