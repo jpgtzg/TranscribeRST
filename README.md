@@ -8,6 +8,6 @@ A tool that helps translate audio explanations into Sphinx code for easy impleme
 
 ## Contributors
 
-<a href="https://github.com/jpgtzg/aidocs/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=jpgtzg/aidocs" />
+<a href="https://github.com/jpgtzg/speechdocs/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=jpgtzg/speechdocs" />
 </a>
