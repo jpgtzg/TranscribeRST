@@ -1,4 +1,4 @@
-# AiDocs
+# SpeechDocs
 
 A tool that helps translate audio explanations into Sphinx code for easy implementation and development of project documentation
 
