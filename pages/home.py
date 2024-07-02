@@ -30,9 +30,7 @@ def upload() :
 
     if uploaded_file and transcribe_button: 
         st.write("Transcribing..")
-        
-        t.sleep(3)
-        
+                
         code = code_converter.get_code(audio.get_transcription(uploaded_file))
         with st.container(border=True): 
         
