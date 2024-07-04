@@ -14,7 +14,7 @@ def __init__ ():
     st.set_page_config(page_title="AI Docs", page_icon="🧠")
     pass
 
-st.title("AI Docs")
+st.title("SpeechDocs")
 
 def home(): 
     st.write("""Welcome to AI Docs! 
