@@ -2,11 +2,17 @@
 # 26 05 2024
 
 import whisper
+import os
 from pydub import AudioSegment
+from openai import OpenAI
+
+import streamlit as st
+
+client = OpenAI(api_key=st.secrets["OPENAI"]["OPENAI_API_KEY"])
 
 # Loads the model and transcribes the audio file
 def get_transcription(audio_file):    
-    model = whisper.load_model('base')
+    model = whisper.load_model('turbo')
     
     # Convert the audio file to a format that Whisper can process
     audio = AudioSegment.from_file(audio_file, format='mp3')
@@ -26,5 +32,15 @@ def get_transcription(audio_file):
 
     text_string = str(text_value)
 
+    os.remove('temp.mp3')
+
     return text_string
 
+
+def get_openai_transcription(audio_file):
+    transcription = client.audio.transcriptions.create(
+        model="whisper-1", 
+        file=audio_file
+    )
+    print(transcription.text)
+    return transcription.text
