@@ -14,10 +14,10 @@ def __init__ ():
     st.set_page_config(page_title="AI Docs", page_icon="🧠")
     pass
 
-st.title("SpeechDocs") 
+st.title("TranscribeRTS") 
 
 def home(): 
-    st.write("""Welcome to AI Docs! 
+    st.write("""Welcome to TranscribeRTS! 
             This is a platform where you can upload lecture or meeting recordings to get 
             documentation code in *.rst* fie format for you Sphinx projects, enhancing the 
             overall documentation-making process and achieving a more efficient workflow.""")
@@ -31,7 +31,7 @@ def upload() :
     if uploaded_file and transcribe_button: 
         st.write("Transcribing..")
                 
-        code = code_converter.get_code(audio.get_transcription(uploaded_file))
+        code = code_converter.get_code(audio.get_openai_transcription(uploaded_file))
         with st.container(border=True): 
         
             st.write("Code: ")
