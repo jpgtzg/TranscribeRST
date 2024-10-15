@@ -1,28 +1,21 @@
 # Written by Juan Pablo Gutiérrez
 # 19 06 2024
 
-import ollama
+from openai import OpenAI
+import streamlit as st
+client = OpenAI(api_key=st.secrets["OPENAI"]["OPENAI_API_KEY"])
 
 def get_code(text) -> str :
     prompt = "The following text corresponds to documentation about a certain topic. Convert them into .rst code for sphinx"
     
     prompt = prompt + text
     
-    stream = ollama.chat(
-        model='llama3',
-        messages=[{'role': 'user', 'content': prompt}],
-        stream=True,
+    result = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are a documentation code converter. The following text corresponds to documentation about a certain topic. Convert them into .rst code for sphinx."},
+            {'role' : 'user' , 'content' : prompt}
+        ],
     )
-    
-    # Initialize an empty list to collect the chunks
-    collected_text = []
-    
-    for chunk in stream:
-        # Collect each chunk in the list
-        collected_text.append(chunk['message']['content'])
-        print(chunk['message']['content'], end='', flush=True)
-        
-    print('')
-    
-    # Join the collected chunks into a single string and return it
-    return ''.join(collected_text)
+
+    return result.choices[0].message.content
