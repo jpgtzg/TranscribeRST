@@ -5,10 +5,11 @@ from openai import OpenAI
 import streamlit as st
 client = OpenAI(api_key=st.secrets["OPENAI"]["OPENAI_API_KEY"])
 
-def get_code(text) -> str :
-    prompt = "The following text corresponds to documentation about a certain topic. Convert them into .rst code for sphinx"
+def get_code(text, user_context) -> str :
+    prompt = f'The following text corresponds to documentation about a certain topic. Convert them into .rst code for sphinx: \n\n {text}'
     
-    prompt = prompt + text
+    if user_context:
+        prompt = f"Context: {user_context}\n\n" + prompt
     
     result = client.chat.completions.create(
         model="gpt-4o-mini",
